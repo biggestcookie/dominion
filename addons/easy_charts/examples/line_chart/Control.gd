@@ -32,19 +32,19 @@ func _ready():
     
     # Let's add values to our functions
     f1 = Function.new(
-        x, y, "Pressure", # This will create a function with x and y values taken by the Arrays 
+        x, y, "Pressure", # This will create a function with x and y values taken by the Arrays
                         # we have created previously. This function will also be named "Pressure"
                         # as it contains 'pressure' values.
                         # If set, the name of a function will be used both in the Legend
                         # (if enabled thourgh ChartProperties) and on the Tooltip (if enabled).
         # Let's also provide a dictionary of configuration parameters for this specific function.
-        { 
-            color = Color("#36a2eb"), 		# The color associated to this function
-            marker = Function.Marker.CIRCLE, 	# The marker that will be displayed for each drawn point (x,y)
+        {
+            color = Color("#36a2eb"), # The color associated to this function
+            marker = Function.Marker.CIRCLE, # The marker that will be displayed for each drawn point (x,y)
                                             # since it is `NONE`, no marker will be shown.
-            type = Function.Type.LINE, 		# This defines what kind of plotting will be used, 
+            type = Function.Type.LINE, # This defines what kind of plotting will be used,
                                             # in this case it will be a Linear Chart.
-            interpolation = Function.Interpolation.STAIR	# Interpolation mode, only used for 
+            interpolation = Function.Interpolation.LINEAR # Interpolation mode, only used for
                                                             # Line Charts and Area Charts.
         }
     )
@@ -56,17 +56,17 @@ func _ready():
     set_process(false)
 
 
-var new_val: float = 4.5
+# var new_val: float = 4.5
 
-func _process(delta: float):
-    # This function updates the values of a function and then updates the plot
-    new_val += 5
+# func _process(delta: float):
+#     # This function updates the values of a function and then updates the plot
+#     new_val += 5
     
-    # we can use the `Function.add_point(x, y)` method to update a function
-    f1.add_point(new_val, cos(new_val) * 20)
-    f1.remove_point(0)
-    chart.queue_redraw() # This will force the Chart to be updated
+#     # we can use the `Function.add_point(x, y)` method to update a function
+#     f1.add_point(new_val, cos(new_val) * 20)
+#     f1.remove_point(0)
+#     chart.queue_redraw() # This will force the Chart to be updated
 
 
-func _on_CheckButton_pressed():
-    set_process(not is_processing())
+# func _on_CheckButton_pressed():
+#     set_process(not is_processing())

@@ -1,16 +1,17 @@
-[gd_scene load_steps=2 format=3 uid="uid://dp8eelbl0ukjb"]
+[gd_scene load_steps=3 format=3 uid="uid://dp8eelbl0ukjb"]
 
 [ext_resource type="Script" path="res://main.gd" id="1_sxbca"]
+[ext_resource type="PackedScene" uid="uid://dlwq4kmdb3bhs" path="res://addons/easy_charts/control_charts/chart.tscn" id="2_8gy2w"]
 
 [node name="Main" type="Control"]
 layout_mode = 3
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
 script = ExtResource("1_sxbca")
 
 [node name="Timer" type="Timer" parent="."]
@@ -22,6 +23,7 @@ wait_time = 3.0
 one_shot = true
 
 [node name="Label" type="Label" parent="."]
+visible = false
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -41,18 +43,9 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Results" type="VBoxContainer" parent="."]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -133.5
-offset_top = -79.0
-offset_right = 133.5
-offset_bottom = 79.0
-grow_horizontal = 2
-grow_vertical = 2
+layout_mode = 0
+offset_right = 1600.0
+offset_bottom = 900.0
 alignment = 1
 
 [node name="PressesLabel" type="Label" parent="Results"]
@@ -62,6 +55,9 @@ theme_override_font_sizes/font_size = 56
 text = "Presses: 0"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="Chart" parent="Results" instance=ExtResource("2_8gy2w")]
+layout_mode = 2
 
 [node name="ResultsLabel" type="Label" parent="Results"]
 layout_mode = 2
