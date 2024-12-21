@@ -78,11 +78,11 @@ func plot() -> void:
 	cp.colors.ticks = Color("#283442")
 	cp.colors.text = Color.WHITE_SMOKE
 	cp.draw_bounding_box = false
-	cp.title = "Press speed"
+	cp.title = "Presses per second"
 	cp.x_label = "Time (seconds)"
 	cp.y_label = "Presses"
 	cp.x_scale = 10
-	cp.y_scale = 5
+	cp.y_scale = plots.y.max() + 1
 	cp.interactive = true # false by default, it allows the chart to create a tooltip to show point values
 	# and interecept clicks on the plot
 	
@@ -97,6 +97,8 @@ func plot() -> void:
 		}
 	)
 	
+	chart.set_x_domain(0, 10)
+	chart.set_y_domain(0, plots.y.max() + 1)
 	# Now let's plot our data
 	chart.plot([function], cp)
 	
@@ -105,10 +107,10 @@ func plot() -> void:
 
 
 func calculate_velocity(data: Array) -> Dictionary:
-	var num_segments := 20
+	var num_segments := 10
 	var segment_length := data.size() / (num_segments)
-	var x_points := [0.0]
-	var y_points := [0]
+	var x_points := []
+	var y_points := []
 	
 	for index in range(num_segments):
 		var start := index * segment_length
