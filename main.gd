@@ -47,7 +47,6 @@ func _physics_process(_delta: float) -> void:
 		results_label.text = str(int(results_timer.time_left + 1))
 		return
 
-
 	label.text = str(int(timer.time_left + 1))
 	if Input.is_action_just_released("mash"):
 		presses += 1
