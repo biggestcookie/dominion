@@ -1,12 +1,12 @@
-extends Node2D
+extends Control
 
 @onready var timer: Timer = $Timer
-@onready var label: Label = $Control/Label
+@onready var label: Label = $Label
 
 @onready var results_timer: Timer = $ResultsTimer
-@onready var results: VBoxContainer = $Control/Results
-@onready var presses_label: Label = $Control/Results/PressesLabel
-@onready var results_label: Label = $Control/Results/ResultsLabel
+@onready var results: VBoxContainer = $Results
+@onready var presses_label: Label = $Results/PressesLabel
+@onready var results_label: Label = $Results/ResultsLabel
 
 
 var is_active := false
