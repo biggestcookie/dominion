@@ -24,6 +24,8 @@ func _ready() -> void:
 		results.show()
 		label.hide()
 		results_timer.start()
+		presses_label.text = "Presses: %s" % [str(presses)]
+		plot()
 	)
 	results_timer.timeout.connect(func() -> void:
 		print("Results timer ended")
@@ -32,9 +34,9 @@ func _ready() -> void:
 	)
 
 	# Change this back
-	label.hide()
-	results.show()
-	plot()
+	label.show()
+	results.hide()
+	# plot()
 
 
 func _physics_process(_delta: float) -> void:
@@ -54,9 +56,7 @@ func _physics_process(_delta: float) -> void:
 		return
 	elif is_displaying_results:
 		# Wait for results
-		presses_label.text = "Presses: %s" % [str(presses)]
 		results_label.text = str(int(results_timer.time_left + 1))
-		plot()
 		return
 
 	label.text = str(int(timer.time_left + 1))
@@ -65,25 +65,9 @@ func _physics_process(_delta: float) -> void:
 		press_timing[timing_index] = true
 	timing_index += 1
 
-func plot() -> void:
-	var data := Array()
-	data.resize(600)
-	for i in range(data.size()):
-		data[i] = randi() % 2 == 0
-	var plots = calculate_velocity(data)
-	# var x := ArrayOperations.multiply_float(range(-10, 11, 1), 0.5)
-	# var y := ArrayOperations.multiply_int(ArrayOperations.cos(x), 20)
-	var x := [
-		0,
-		1,
-		2
-	]
 
-	var y := [
-		0,
-		1,
-		1
-	]
+func plot() -> void:
+	var plots = calculate_velocity(press_timing)
 	
 	# Let's customize the chart properties, which specify how the chart
 	# should look, plus some additional elements like labels, the scale, etc...
@@ -123,36 +107,16 @@ func plot() -> void:
 func calculate_velocity(data: Array) -> Dictionary:
 	var num_segments := 20
 	var segment_length := data.size() / (num_segments)
-	var x_points := [0]
+	var x_points := [0.0]
 	var y_points := [0]
 	
-	for index in range(segment_length, num_segments):
-		var start := index
+	for index in range(num_segments):
+		var start := index * segment_length
 		var end := start + segment_length
 		var button_presses := 0
-
 		for j in range(start, end):
 			if data[j]:
 				button_presses += 1
-		x_points.append(start)
+		x_points.append((1.0 / 60) * end)
 		y_points.append(button_presses)
-
-		# # Calculate the start and end of the current segment
-		# var start := i * segment_length
-		# var end := start + segment_length
-		
-		# # Count the number of 'true' elements in this segment
-		# var button_presses := 0
-		# for j in range(start, end):
-		# 	if data[j]:
-		# 		button_presses += 1
-		
-		# # X is the midpoint of the segment (in seconds)
-		# var midpoint := (i + 5) * (10.0 / num_segments) # 10 seconds divided by 20 segments
-		# x_points.append(midpoint)
-		
-		# # Y is the velocity, calculated as the count of button presses
-		# y_points.append(button_presses)
-	print(x_points)
-	print(y_points)
 	return {"x": x_points, "y": y_points}
