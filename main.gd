@@ -30,8 +30,11 @@ func _ready() -> void:
 		is_displaying_results = false
 		results_label.text = "Start mashing to try again"
 	)
-	label.show()
-	results.hide()
+
+	# Change this back
+	label.hide()
+	results.show()
+	plot()
 
 
 func _physics_process(_delta: float) -> void:
@@ -64,8 +67,19 @@ func _physics_process(_delta: float) -> void:
 
 func plot() -> void:
 	var plots = calculate_velocity(press_timing)
-	var x := ArrayOperations.multiply_float(range(-10, 11, 1), 0.5)
-	var y := ArrayOperations.multiply_int(ArrayOperations.cos(x), 20)
+	# var x := ArrayOperations.multiply_float(range(-10, 11, 1), 0.5)
+	# var y := ArrayOperations.multiply_int(ArrayOperations.cos(x), 20)
+	var x := [
+		0,
+		1,
+		2
+	]
+
+	var y := [
+		0,
+		1,
+		1
+	]
 	
 	# Let's customize the chart properties, which specify how the chart
 	# should look, plus some additional elements like labels, the scale, etc...
@@ -78,7 +92,7 @@ func plot() -> void:
 	cp.draw_bounding_box = false
 	cp.title = "Press speed"
 	cp.x_label = "Time (seconds)"
-	cp.y_label = "Velocity"
+	cp.y_label = "Presses"
 	cp.x_scale = 10
 	cp.y_scale = 5
 	cp.interactive = true # false by default, it allows the chart to create a tooltip to show point values
@@ -86,12 +100,12 @@ func plot() -> void:
 	
 	# Let's add values to our functions
 	function = Function.new(
-		plots.x, plots.y, "Number of presses",
+		x, y, "Number of presses",
 		{
 			color = Color("#36a2eb"),
 			marker = Function.Marker.CIRCLE,
 			type = Function.Type.LINE,
-			interpolation = Function.Interpolation.NONE
+			interpolation = Function.Interpolation.SPLINE
 		}
 	)
 	
