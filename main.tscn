@@ -37,7 +37,8 @@ grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 4
 theme_override_font_sizes/font_size = 56
-text = "Start mashing anytime!"
+text = "Start by mashing the A button
+on your controller!"
 horizontal_alignment = 1
 vertical_alignment = 1
 
