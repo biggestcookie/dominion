@@ -23,8 +23,8 @@ func _ready() -> void:
 		is_displaying_results = false
 		results_label.text = "Start mashing to try again"
 	)
-	label.show()
-	results.hide()
+	label.hide()
+	results.show()
 
 
 func _physics_process(_delta: float) -> void:
@@ -103,7 +103,7 @@ func plot() -> void:
 
 
 func calculate_velocity(data: Array) -> Dictionary:
-	var num_segments := 20
+	var num_segments := 30
 	var segment_length := data.size() / num_segments
 	var segment_time := (1.0 / 60.0) * segment_length
 	var x_points := []
@@ -117,6 +117,6 @@ func calculate_velocity(data: Array) -> Dictionary:
 			if data[j]:
 				button_presses += 1
 		x_points.append((1.0 / 60.0) * end)
-		y_points.append(button_presses / segment_time)
+		y_points.append(float(button_presses / segment_time))
 
 	return {"x": x_points, "y": y_points}
