@@ -83,10 +83,10 @@ func plot() -> void:
 	cp.y_label = "Presses per second"
 	cp.x_scale = 10
 	cp.y_scale = plots.y.max() + 1
-	cp.interactive = true
+	cp.interactive = false
 
 	function = Function.new(
-		plots.x, plots.y, "Number of presses",
+		plots.x, plots.y, "Presses per second",
 		{
 			color = Color("#36a2eb"),
 			marker = Function.Marker.CIRCLE,
