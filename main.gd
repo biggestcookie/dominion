@@ -23,8 +23,8 @@ func _ready() -> void:
 		is_displaying_results = false
 		results_label.text = "Start mashing to try again"
 	)
-	label.hide()
-	results.show()
+	label.show()
+	results.hide()
 
 
 func _physics_process(_delta: float) -> void:
