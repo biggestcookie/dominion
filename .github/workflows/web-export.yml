@@ -9,8 +9,8 @@ env:
   PROJECT_PATH: .
 
 jobs:
-  export-web:
-    name: Web Export
+  web-export:
+    name: Web export
     runs-on: ubuntu-latest
     container:
       image: barichello/godot-ci:4.3
@@ -27,16 +27,14 @@ jobs:
           EXPORT_DIR="$(readlink -f build)"
           cd $PROJECT_PATH
           godot --headless --verbose --export-release "Web" "$EXPORT_DIR/web/index.html"
-      - name: Upload Artifact
-        uses: actions/upload-artifact@v4
-        with:
-          name: web
-          path: build/web
-      - name: Install rsync 📚
-        run: |
-          apt-get update && apt-get install -y rsync
-      - name: Deploy to GitHub Pages 🚀
-        uses: JamesIves/github-pages-deploy-action@releases/v4
-        with:
-          branch: gh-pages # The branch the action should deploy to.
-          folder: build/web # The folder the action should deploy.
+    web-deploy:
+      runs-on: ubuntu-latest
+      name: Web deploy
+      steps:
+        - uses: actions/checkout@v4
+        - name: Deploy
+          uses: cloudflare/wrangler-action@v3
+          with:
+            apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+            command: pages deploy build/web --project-name=example
+            gitHubToken: ${{ secrets.GITHUB_TOKEN }}
