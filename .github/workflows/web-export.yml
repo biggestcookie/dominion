@@ -38,6 +38,12 @@ jobs:
     steps:
       - name: Download build artifacts
         uses: actions/download-artifact@v4
+        with:
+          path: build/web
+      - name: Display structure of downloaded files
+        run: |
+          ls -R build/web
+          pwd
       - name: Deploy
         uses: cloudflare/wrangler-action@v3
         with:
