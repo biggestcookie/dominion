@@ -36,5 +36,5 @@ jobs:
         uses: cloudflare/wrangler-action@v3
         with:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
-          command: pages deploy build/web --project-name=example
+          command: pages deploy build/web --project-name=dominion
           gitHubToken: ${{ secrets.GITHUB_TOKEN }}
