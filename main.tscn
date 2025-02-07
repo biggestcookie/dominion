@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://dp8eelbl0ukjb"]
 
-[ext_resource type="Script" path="res://main.gd" id="1_sxbca"]
+[ext_resource type="Script" uid="uid://4d8p0bexvclk" path="res://main.gd" id="1_sxbca"]
 [ext_resource type="PackedScene" uid="uid://dlwq4kmdb3bhs" path="res://addons/easy_charts/control_charts/chart.tscn" id="2_8gy2w"]
 
 [node name="Main" type="Control"]
