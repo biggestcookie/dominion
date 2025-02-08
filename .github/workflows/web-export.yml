@@ -1,7 +1,9 @@
 name: "Web Export"
-on: push
-
-# NOTE: If your `project.godot` is at the repository root, set `PROJECT_PATH` below to ".".
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - main
 
 env:
   GODOT_VERSION: 4.3
