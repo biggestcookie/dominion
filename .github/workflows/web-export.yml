@@ -35,9 +35,9 @@ jobs:
           cd $PROJECT_PATH
           godot --headless --verbose --export-release "Web" "$EXPORT_DIR/web/index.html"
       - name: Upload artifact
-          uses: actions/upload-pages-artifact@v3
-          with:
-            path: "build/web"
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: "build/web"
     web-deploy:
       runs-on: ubuntu-latest
       needs: web-build
