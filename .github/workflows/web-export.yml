@@ -10,6 +10,11 @@ env:
   EXPORT_NAME: dominion
   PROJECT_PATH: .
 
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
 jobs:
   export-web:
     name: Web Export
@@ -42,7 +47,3 @@ jobs:
           path: "build/web"
       - name: Deploy to GitHub Pages
         uses: actions/deploy-pages@v4
-        permissions:
-          contents: read
-          pages: write
-          id-token: write
