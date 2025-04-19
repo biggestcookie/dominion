@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://rtvt044q046s"]
+
+[ext_resource type="Script" uid="uid://86ubqeh12ya" path="res://scenes/results/results.gd" id="1_txs4c"]
+
+[node name="Results" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_txs4c")
