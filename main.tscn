@@ -1,68 +1,15 @@
-[gd_scene load_steps=3 format=3 uid="uid://dp8eelbl0ukjb"]
+[gd_scene load_steps=5 format=3 uid="uid://drfytfgc5uhnn"]
 
-[ext_resource type="Script" uid="uid://4d8p0bexvclk" path="res://main.gd" id="1_sxbca"]
-[ext_resource type="PackedScene" uid="uid://dlwq4kmdb3bhs" path="res://addons/easy_charts/control_charts/chart.tscn" id="2_8gy2w"]
+[ext_resource type="Script" uid="uid://bsike2rc2f1r" path="res://main.gd" id="1_sxbca"]
+[ext_resource type="PackedScene" uid="uid://1shvl2glr8c4" path="res://menu/menu.tscn" id="2_1bvp3"]
+[ext_resource type="PackedScene" uid="uid://b08obj7md1fvb" path="res://gameplay/gameplay.tscn" id="3_lquwl"]
+[ext_resource type="PackedScene" uid="uid://rtvt044q046s" path="res://results/results.tscn" id="4_7mycd"]
 
-[node name="Main" type="Control"]
-layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-size_flags_horizontal = 3
+[node name="Main" type="Node"]
 script = ExtResource("1_sxbca")
 
-[node name="Timer" type="Timer" parent="."]
-wait_time = 10.0
-one_shot = true
+[node name="Menu" parent="." instance=ExtResource("2_1bvp3")]
 
-[node name="ResultsTimer" type="Timer" parent="."]
-wait_time = 3.0
-one_shot = true
+[node name="Gameplay" parent="." instance=ExtResource("3_lquwl")]
 
-[node name="Label" type="Label" parent="."]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -405.5
-offset_top = -78.5
-offset_right = 405.5
-offset_bottom = 78.5
-grow_horizontal = 2
-grow_vertical = 2
-size_flags_horizontal = 4
-theme_override_font_sizes/font_size = 56
-text = "Start by mashing the A button
-on your controller!"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="Results" type="VBoxContainer" parent="."]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="PressesLabel" type="Label" parent="Results"]
-layout_mode = 2
-size_flags_horizontal = 4
-theme_override_font_sizes/font_size = 56
-text = "Presses: 0"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="Chart" parent="Results" instance=ExtResource("2_8gy2w")]
-layout_mode = 2
-
-[node name="ResultsLabel" type="Label" parent="Results"]
-layout_mode = 2
-size_flags_horizontal = 4
-theme_override_font_sizes/font_size = 56
-horizontal_alignment = 1
-vertical_alignment = 1
+[node name="Results" parent="." instance=ExtResource("4_7mycd")]

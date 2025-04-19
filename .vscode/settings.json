@@ -1,0 +1,27 @@
+{
+	"[gdscript]": {
+		"editor.defaultFormatter": "geequlim.godot-tools",
+	},
+	"[json][jsonc]": {
+		"editor.defaultFormatter": "vscode.json-language-features",
+	},
+	"files.exclude": {
+		"**/.git": true,
+		"**/.svn": true,
+		"**/.hg": true,
+		"**/CVS": true,
+		"**/.DS_Store": true,
+		"**/Thumbs.db": true,
+		"**/*.glb": true,
+		"**/*.import": true,
+		"**/*.model": true,
+		"**/*.tscn": true,
+		"**/*.tres": true,
+		"**/*.uid": true,
+		".godot/**": true
+	},
+	"editor.insertSpaces": false,
+	"editor.tabSize": 4,
+	"files.eol": "\n",
+	"godotTools.lsp.serverPort": 6005,
+}

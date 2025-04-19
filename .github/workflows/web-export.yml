@@ -1,12 +1,12 @@
-name: "Web Export"
+name: "Web export"
 on:
   workflow_dispatch:
-  push:
-    branches:
-      - main
+  # push:
+  #   branches:
+  #     - main
 
 env:
-  GODOT_VERSION: 4.3
+  GODOT_VERSION: 4.4
   EXPORT_NAME: dominion
   PROJECT_PATH: .
 
@@ -20,7 +20,10 @@ jobs:
     name: Web build
     runs-on: ubuntu-latest
     container:
-      image: barichello/godot-ci:4.3
+      image: barichello/godot-ci:4.4
+    environment:
+      name: Netlify
+      url: https://dominion.netlify.app
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -29,22 +32,23 @@ jobs:
           mkdir -v -p ~/.local/share/godot/export_templates/
           mv /root/.local/share/godot/export_templates/${GODOT_VERSION}.stable ~/.local/share/godot/export_templates/${GODOT_VERSION}.stable
       - name: Godot web build
+        timeout-minutes: 5
         run: |
           mkdir -v -p build/web
           EXPORT_DIR="$(readlink -f build)"
           cd $PROJECT_PATH
           godot --headless --verbose --export-release "Web" "$EXPORT_DIR/web/index.html"
-      - name: Upload artifact
-        uses: actions/upload-pages-artifact@v3
+      - name: Create Netlify _headers file
+        run: |
+          cat <<EOF > build/web/_headers
+          /*
+            Cross-Origin-Embedder-Policy: require-corp
+            Cross-Origin-Opener-Policy: same-origin
+          EOF
+      - name: Publish to Netlify
+        uses: netlify/actions/cli@master
         with:
-          path: "build/web"
-  web-deploy:
-    runs-on: ubuntu-latest
-    needs: web-build
-    environment:
-      name: github-pages
-    steps:
-      - name: Setup Pages
-        uses: actions/configure-pages@v5
-      - name: Deploy to GitHub Pages
-        uses: actions/deploy-pages@v4
+          args: deploy --dir=build/web --prod
+        env:
+          NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
+          NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_TOKEN }}
