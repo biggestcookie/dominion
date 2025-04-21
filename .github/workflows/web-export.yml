@@ -23,7 +23,7 @@ jobs:
       image: barichello/godot-ci:4.4
     environment:
       name: Netlify
-      url: https://dominion.netlify.app
+      url: https://mashparty.netlify.app
     steps:
       - name: Checkout
         uses: actions/checkout@v4
