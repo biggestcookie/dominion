@@ -11,9 +11,17 @@ config_version=5
 [application]
 
 config/name="mash-party"
-run/main_scene="res://scenes/prototype/prototype.tscn"
+run/main_scene="uid://dp8eelbl0ukjb"
 config/features=PackedStringArray("4.4", "Mobile")
 config/icon="res://assets/icon.svg"
+
+[autoload]
+
+Events="*res://events.gd"
+
+[debug]
+
+gdscript/warnings/unused_signal=0
 
 [display]
 

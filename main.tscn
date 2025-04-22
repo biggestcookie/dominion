@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://drfytfgc5uhnn"]
+[gd_scene load_steps=6 format=3 uid="uid://dp8eelbl0ukjb"]
 
 [ext_resource type="Script" uid="uid://bsike2rc2f1r" path="res://main.gd" id="1_sxbca"]
 [ext_resource type="PackedScene" uid="uid://1shvl2glr8c4" path="res://scenes/menu/menu.tscn" id="2_1bvp3"]
 [ext_resource type="PackedScene" uid="uid://b08obj7md1fvb" path="res://scenes/gameplay/gameplay.tscn" id="3_lquwl"]
 [ext_resource type="PackedScene" uid="uid://rtvt044q046s" path="res://scenes/results/results.tscn" id="4_7mycd"]
+[ext_resource type="PackedScene" uid="uid://lbvoom2t1qal" path="res://scenes/settings/settings.tscn" id="5_lquwl"]
 
 [node name="Main" type="Node"]
 script = ExtResource("1_sxbca")
@@ -11,5 +12,10 @@ script = ExtResource("1_sxbca")
 [node name="Menu" parent="." instance=ExtResource("2_1bvp3")]
 
 [node name="Gameplay" parent="." instance=ExtResource("3_lquwl")]
+visible = false
 
 [node name="Results" parent="." instance=ExtResource("4_7mycd")]
+visible = false
+
+[node name="Settings" parent="." instance=ExtResource("5_lquwl")]
+visible = false
