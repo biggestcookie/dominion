@@ -1,4 +1,4 @@
-[gd_scene load_steps=3 format=3 uid="uid://dp8eelbl0ukjb"]
+[gd_scene load_steps=3 format=3 uid="uid://c8ae2bydsaiav"]
 
 [ext_resource type="Script" uid="uid://4d8p0bexvclk" path="res://scenes/prototype/prototype.gd" id="1_vo8sw"]
 [ext_resource type="PackedScene" uid="uid://dlwq4kmdb3bhs" path="res://addons/easy_charts/control_charts/chart.tscn" id="2_883nb"]

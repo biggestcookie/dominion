@@ -7,7 +7,7 @@ on:
 
 env:
   GODOT_VERSION: 4.4
-  EXPORT_NAME: dominion
+  EXPORT_NAME: mash-party
   PROJECT_PATH: .
 
 permissions:

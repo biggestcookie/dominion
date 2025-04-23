@@ -17,29 +17,14 @@ var game_state := GameState.MENU
 
 
 func _ready() -> void:
+	on_game_state_changed(GameState.MENU)
 	Events.game_state_changed.connect(on_game_state_changed)
 
 
 func on_game_state_changed(new_state: GameState) -> void:
-	match new_state:
-		GameState.MENU:
-			menu.visible = true
-			gameplay.visible = false
-			results.visible = false
-			settings.visible = false
-		GameState.GAMEPLAY:
-			menu.visible = false
-			gameplay.visible = true
-			results.visible = false
-			settings.visible = false
-		GameState.RESULTS:
-			menu.visible = false
-			gameplay.visible = false
-			results.visible = true
-			settings.visible = false
-		GameState.SETTINGS:
-			menu.visible = false
-			gameplay.visible = false
-			results.visible = false
-			settings.visible = true
+	menu.visible = new_state == GameState.MENU
+	gameplay.visible = new_state == GameState.GAMEPLAY
+	results.visible = new_state == GameState.RESULTS
+	settings.visible = new_state == GameState.SETTINGS
+
 	game_state = new_state

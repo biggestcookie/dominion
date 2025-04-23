@@ -22,6 +22,7 @@ Events="*res://events.gd"
 [debug]
 
 gdscript/warnings/unused_signal=0
+gdscript/warnings/untyped_declaration=1
 
 [display]
 
