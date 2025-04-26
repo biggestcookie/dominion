@@ -1,12 +1,21 @@
-[gd_scene load_steps=3 format=3 uid="uid://b08obj7md1fvb"]
+[gd_scene load_steps=4 format=3 uid="uid://b08obj7md1fvb"]
 
 [ext_resource type="Script" uid="uid://dmrodf6j3xf5b" path="res://scenes/gameplay/gameplay.gd" id="1_nyvx4"]
 
-[sub_resource type="LabelSettings" id="LabelSettings_elxb5"]
+[sub_resource type="LabelSettings" id="LabelSettings_x0t60"]
 font_size = 72
+
+[sub_resource type="LabelSettings" id="LabelSettings_elxb5"]
+font_size = 48
 
 [node name="Gameplay" type="Node2D"]
 script = ExtResource("1_nyvx4")
+
+[node name="Timers" type="Node" parent="."]
+
+[node name="Countdown" type="Timer" parent="Timers"]
+
+[node name="Limit" type="Timer" parent="Timers"]
 
 [node name="UI" type="Control" parent="."]
 layout_mode = 3
@@ -32,6 +41,20 @@ offset_bottom = 11.5
 grow_horizontal = 2
 grow_vertical = 2
 text = "3"
+label_settings = SubResource("LabelSettings_x0t60")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Elapsed" type="Label" parent="UI"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -95.5
+offset_right = 95.5
+offset_bottom = 67.0
+grow_horizontal = 2
+text = "00:00.00"
 label_settings = SubResource("LabelSettings_elxb5")
 horizontal_alignment = 1
 vertical_alignment = 1
