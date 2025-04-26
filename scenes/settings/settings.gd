@@ -3,3 +3,4 @@ extends Control
 
 # hide timer
 # hide visuals?
+# Simulate nintendo 1/60

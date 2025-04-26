@@ -17,11 +17,11 @@ var game_state := GameState.MENU
 
 
 func _ready() -> void:
-	on_game_state_changed(GameState.MENU)
+	on_game_state_changed(GameState.MENU, null)
 	Events.game_state_changed.connect(on_game_state_changed)
 
 
-func on_game_state_changed(new_state: GameState) -> void:
+func on_game_state_changed(new_state: GameState, _result: Result) -> void:
 	menu.visible = new_state == GameState.MENU
 	gameplay.visible = new_state == GameState.GAMEPLAY
 	results.visible = new_state == GameState.RESULTS

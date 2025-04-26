@@ -14,8 +14,8 @@ script = ExtResource("1_nyvx4")
 [node name="Timers" type="Node" parent="."]
 
 [node name="Countdown" type="Timer" parent="Timers"]
-
-[node name="Limit" type="Timer" parent="Timers"]
+wait_time = 3.0
+one_shot = true
 
 [node name="UI" type="Control" parent="."]
 layout_mode = 3
@@ -55,6 +55,19 @@ offset_right = 95.5
 offset_bottom = 67.0
 grow_horizontal = 2
 text = "00:00.00"
+label_settings = SubResource("LabelSettings_elxb5")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Presses" type="Label" parent="UI"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -191.0
+offset_bottom = 67.0
+grow_horizontal = 0
+text = "0"
 label_settings = SubResource("LabelSettings_elxb5")
 horizontal_alignment = 1
 vertical_alignment = 1

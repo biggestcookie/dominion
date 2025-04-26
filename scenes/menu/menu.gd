@@ -13,14 +13,14 @@ func _ready() -> void:
 
 
 func on_play_button_pressed() -> void:
-	Events.game_state_changed.emit(Main.GameState.GAMEPLAY)
+	Events.game_state_changed.emit(Main.GameState.GAMEPLAY, null)
 
 
 func on_leaderboard_button_pressed() -> void:
-	# Events.game_state_changed.emit(Main.GameState.RESULTS)
+	# Events.game_state_changed.emit(Main.GameState.RESULTS, null)
 	pass
 
 
 func on_settings_button_pressed() -> void:
-	# Events.game_state_changed.emit(Main.GameState.SETTINGS)
+	# Events.game_state_changed.emit(Main.GameState.SETTINGS, null)
 	pass
