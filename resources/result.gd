@@ -1,22 +1,33 @@
 class_name Result
 extends Resource
 
-var start_msec := 0
-var finish_msec := 0
-var elapsed := 0
-var frame_presses: Array[float] = [] # Each element is the second that each press occurred
+var _start_msec: int
+var _finish_msec: int
+var total_msec: int:
+	get():
+		return _finish_msec - _start_msec
 
-func _init(p_start_msec := 0) -> void:
-	start_msec = p_start_msec
+var press_ticks: Array[int] = [] # Each element is the tick each press occurred
+var press_count: int:
+	get():
+		return len(press_ticks)
+
+
+func _init() -> void:
+	_start_msec = Time.get_ticks_msec()
 
 
 func finish() -> void:
-	finish_msec = Time.get_ticks_msec()
-	total_msec = finish_msec - start_msec
+	_finish_msec = Time.get_ticks_msec()
+
+
+func press() -> void:
+	press_ticks.append(Time.get_ticks_msec())
 
 
 func get_elapsed_time() -> String:
-	var total_seconds := (current_msec - start_msec) / 1000.0
+	# Make this store and return msec instead of storing frame times?
+	var total_seconds := (Time.get_ticks_msec() - _start_msec) / 1000.0
 	var minutes := int(total_seconds / 60.0)
 	var seconds := int(total_seconds) % 60
 	var milliseconds := int(total_seconds * 1000) % 1000
