@@ -6,11 +6,10 @@ extends Node2D
 @onready var elapsed_label: Label = $UI/Elapsed
 @onready var presses_label: Label = $UI/Presses
 
-var is_active := false
-var result: Result = null
-
 const frame_delta := 1.0 / 60.0
 
+var is_active := false
+var result: Score
 
 func _ready() -> void:
 	Events.game_state_changed.connect(on_game_state_changed)
@@ -27,7 +26,6 @@ func _process(_delta: float) -> void:
 		countdown_label.text = str(int(
 			countdown_timer.time_left + 1
 		))
-		
 	else:
 		# Update elapsed timer
 		elapsed_label.text = result.get_elapsed_time()
@@ -36,7 +34,10 @@ func _physics_process(delta: float) -> void:
 	if delta != frame_delta:
 		print("ERROR: Running slower than 60 FPS")
 		# Throw error to user?
+	check_button_press()
 
+
+func check_button_press() -> void:
 	if Input.is_action_just_released("mash"):
 		result.press()
 		presses_label.text = str(result.press_count)
@@ -44,7 +45,7 @@ func _physics_process(delta: float) -> void:
 			finish_game()
 
 
-func on_game_state_changed(new_state: Main.GameState, _result: Result) -> void:
+func on_game_state_changed(new_state: Main.GameState, _result: Score) -> void:
 	if new_state != Main.GameState.GAMEPLAY:
 		return
 	start_countdown()
@@ -58,7 +59,7 @@ func start_countdown() -> void:
 func start_mashing() -> void:
 	countdown_label.hide()
 	is_active = true
-	result = Result.new()
+	result = Score.new()
 
 
 func finish_game() -> void:

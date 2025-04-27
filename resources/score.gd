@@ -1,8 +1,9 @@
-class_name Result
+class_name Score
 extends Resource
 
 var _start_msec: int
 var _finish_msec: int
+var unix_time: float
 var total_msec: int:
 	get():
 		return _finish_msec - _start_msec
@@ -19,6 +20,7 @@ func _init() -> void:
 
 func finish() -> void:
 	_finish_msec = Time.get_ticks_msec()
+	unix_time = Time.get_unix_time_from_system()
 
 
 func press() -> void:
