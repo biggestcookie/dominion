@@ -22,9 +22,10 @@ func _ready() -> void:
 
 
 func on_game_state_changed(new_state: GameState, _result: Score) -> void:
+	game_state = new_state
+
+	# Until elements animate themselves
 	menu.visible = new_state == GameState.MENU
 	gameplay.visible = new_state == GameState.GAMEPLAY
 	results.visible = new_state == GameState.RESULTS
 	settings.visible = new_state == GameState.SETTINGS
-
-	game_state = new_state

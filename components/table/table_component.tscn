@@ -1,8 +1,10 @@
-[gd_scene load_steps=3 format=3 uid="uid://boqr33q277xex"]
+[gd_scene load_steps=4 format=3 uid="uid://boqr33q277xex"]
 
 [ext_resource type="Script" uid="uid://im5m6l67f1l1" path="res://components/table/table_component.gd" id="1_vs2ed"]
+[ext_resource type="FontFile" uid="uid://decyeqlktt1i0" path="res://assets/fonts/Lexend-VariableFont_wght.ttf" id="2_5gk16"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_vs2ed"]
+font = ExtResource("2_5gk16")
 font_size = 20
 
 [node name="Table" type="VBoxContainer"]
@@ -18,29 +20,30 @@ metadata/_tab_index = 1
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="HBoxContainer" type="HBoxContainer" parent="ScrollContainer"]
+[node name="Header" type="HBoxContainer" parent="ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="MarginContainer" type="MarginContainer" parent="ScrollContainer/Header"]
 layout_mode = 2
 
-[node name="MarginContainer" type="MarginContainer" parent="ScrollContainer/HBoxContainer"]
-layout_mode = 2
-
-[node name="Label" type="Label" parent="ScrollContainer/HBoxContainer/MarginContainer"]
-layout_mode = 2
-text = "Header"
-label_settings = SubResource("LabelSettings_vs2ed")
-
-[node name="MarginContainer2" type="MarginContainer" parent="ScrollContainer/HBoxContainer"]
-layout_mode = 2
-
-[node name="Label" type="Label" parent="ScrollContainer/HBoxContainer/MarginContainer2"]
+[node name="Label" type="Label" parent="ScrollContainer/Header/MarginContainer"]
 layout_mode = 2
 text = "Header"
 label_settings = SubResource("LabelSettings_vs2ed")
 
-[node name="MarginContainer3" type="MarginContainer" parent="ScrollContainer/HBoxContainer"]
+[node name="MarginContainer2" type="MarginContainer" parent="ScrollContainer/Header"]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="ScrollContainer/HBoxContainer/MarginContainer3"]
+[node name="Label" type="Label" parent="ScrollContainer/Header/MarginContainer2"]
+layout_mode = 2
+text = "Header"
+label_settings = SubResource("LabelSettings_vs2ed")
+
+[node name="MarginContainer3" type="MarginContainer" parent="ScrollContainer/Header"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="ScrollContainer/Header/MarginContainer3"]
 layout_mode = 2
 text = "Header"
 label_settings = SubResource("LabelSettings_vs2ed")

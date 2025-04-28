@@ -1,6 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://rtvt044q046s"]
+[gd_scene load_steps=4 format=3 uid="uid://rtvt044q046s"]
 
 [ext_resource type="Script" uid="uid://86ubqeh12ya" path="res://scenes/results/results.gd" id="1_txs4c"]
+[ext_resource type="PackedScene" uid="uid://boqr33q277xex" path="res://components/table/table_component.tscn" id="2_iaiks"]
 [ext_resource type="PackedScene" uid="uid://dlwq4kmdb3bhs" path="res://addons/easy_charts/control_charts/chart.tscn" id="2_vmlr1"]
 
 [node name="Results" type="Control"]
@@ -33,9 +34,8 @@ visible = false
 layout_mode = 2
 metadata/_tab_index = 0
 
-[node name="Previous Results" type="VBoxContainer" parent="UI/TabContainer"]
+[node name="Previous Results" parent="UI/TabContainer" instance=ExtResource("2_iaiks")]
 layout_mode = 2
-metadata/_tab_index = 1
 
 [node name="Results" type="Panel" parent="UI/TabContainer"]
 visible = false
