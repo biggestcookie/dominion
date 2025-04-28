@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://boqr33q277xex"]
 
 [ext_resource type="Script" uid="uid://im5m6l67f1l1" path="res://components/table/table_component.gd" id="1_vs2ed"]
-[ext_resource type="PackedScene" uid="uid://bixvhhc24y7nm" path="res://components/table/table_row.tscn" id="2_5gk16"]
+[ext_resource type="PackedScene" path="res://components/table/table_row.tscn" id="2_5gk16"]
 
 [node name="Table" type="VBoxContainer"]
 anchors_preset = 15
@@ -12,9 +12,12 @@ grow_vertical = 2
 script = ExtResource("1_vs2ed")
 metadata/_tab_index = 1
 
-[node name="Table Header" parent="." instance=ExtResource("2_5gk16")]
+[node name="TableHeader" parent="." instance=ExtResource("2_5gk16")]
 layout_mode = 2
+is_header = true
 
 [node name="ScrollContainer" type="ScrollContainer" parent="."]
 layout_mode = 2
 size_flags_vertical = 3
+follow_focus = true
+draw_focus_border = true
