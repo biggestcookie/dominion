@@ -1,0 +1,46 @@
+[gd_scene load_steps=3 format=3 uid="uid://boqr33q277xex"]
+
+[ext_resource type="Script" uid="uid://im5m6l67f1l1" path="res://components/table/table_component.gd" id="1_vs2ed"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_vs2ed"]
+font_size = 20
+
+[node name="Table" type="VBoxContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_vs2ed")
+metadata/_tab_index = 1
+
+[node name="ScrollContainer" type="ScrollContainer" parent="."]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="HBoxContainer" type="HBoxContainer" parent="ScrollContainer"]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="ScrollContainer/HBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="ScrollContainer/HBoxContainer/MarginContainer"]
+layout_mode = 2
+text = "Header"
+label_settings = SubResource("LabelSettings_vs2ed")
+
+[node name="MarginContainer2" type="MarginContainer" parent="ScrollContainer/HBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="ScrollContainer/HBoxContainer/MarginContainer2"]
+layout_mode = 2
+text = "Header"
+label_settings = SubResource("LabelSettings_vs2ed")
+
+[node name="MarginContainer3" type="MarginContainer" parent="ScrollContainer/HBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="ScrollContainer/HBoxContainer/MarginContainer3"]
+layout_mode = 2
+text = "Header"
+label_settings = SubResource("LabelSettings_vs2ed")

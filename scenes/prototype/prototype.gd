@@ -36,7 +36,6 @@ func _physics_process(_delta: float) -> void:
 		# Update results timer
 		results_label.text = str(int(results_timer.time_left + 1))
 		return
-
 	label.text = str(int(timer.time_left + 1))
 	if Input.is_action_just_released("mash"):
 		presses += 1
@@ -69,7 +68,7 @@ func show_results() -> void:
 
 
 func plot() -> void:
-	var plots = calculate_velocity(press_timing)
+	var plots := calculate_velocity(press_timing)
 	
 	var cp: ChartProperties = ChartProperties.new()
 	cp.colors.frame = Color("#161a1d")
@@ -104,7 +103,7 @@ func plot() -> void:
 
 func calculate_velocity(data: Array) -> Dictionary:
 	var num_segments := 30
-	var segment_length := data.size() / num_segments
+	var segment_length := int(float(data.size()) / num_segments)
 	var segment_time := (1.0 / 60.0) * segment_length
 	var x_points := []
 	var y_points := []

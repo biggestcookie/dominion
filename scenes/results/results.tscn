@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://rtvt044q046s"]
+[gd_scene load_steps=3 format=3 uid="uid://rtvt044q046s"]
 
 [ext_resource type="Script" uid="uid://86ubqeh12ya" path="res://scenes/results/results.gd" id="1_txs4c"]
+[ext_resource type="PackedScene" uid="uid://dlwq4kmdb3bhs" path="res://addons/easy_charts/control_charts/chart.tscn" id="2_vmlr1"]
 
 [node name="Results" type="Control"]
 layout_mode = 3
@@ -25,7 +26,7 @@ offset_right = 500.0
 offset_bottom = 300.0
 grow_horizontal = 2
 grow_vertical = 2
-current_tab = 2
+current_tab = 1
 
 [node name="Leaderboard" type="VBoxContainer" parent="UI/TabContainer"]
 visible = false
@@ -33,10 +34,13 @@ layout_mode = 2
 metadata/_tab_index = 0
 
 [node name="Previous Results" type="VBoxContainer" parent="UI/TabContainer"]
-visible = false
 layout_mode = 2
 metadata/_tab_index = 1
 
 [node name="Results" type="Panel" parent="UI/TabContainer"]
+visible = false
 layout_mode = 2
 metadata/_tab_index = 2
+
+[node name="Chart" parent="UI/TabContainer/Results" instance=ExtResource("2_vmlr1")]
+layout_mode = 1

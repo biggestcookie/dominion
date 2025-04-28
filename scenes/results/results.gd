@@ -19,9 +19,16 @@ func on_game_state_changed(new_state: Main.GameState, result: Score) -> void:
 
 
 func show_window() -> void:
-	show_results = current_result != null
-	tab_container.tabs_visible = show_results
-	tab_container.current_tab = 2 if show_results else 0
-
+	if current_result == null:
+		tab_container.tabs_visible = false
+		tab_container.current_tab = 0
+	else:
+		tab_container.tabs_visible = show_results
+		tab_container.current_tab = 2
+		plot()
 	# tween container into view
+	pass
+
+
+func plot() -> void:
 	pass
