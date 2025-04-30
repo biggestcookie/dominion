@@ -27,20 +27,23 @@ offset_right = 500.0
 offset_bottom = 300.0
 grow_horizontal = 2
 grow_vertical = 2
-current_tab = 1
+current_tab = 0
 
-[node name="Leaderboard" type="VBoxContainer" parent="UI/TabContainer"]
-visible = false
+[node name="Leaderboard" type="Control" parent="UI/TabContainer"]
 layout_mode = 2
 metadata/_tab_index = 0
 
-[node name="Previous Results" parent="UI/TabContainer" instance=ExtResource("2_iaiks")]
+[node name="TableComponent" parent="UI/TabContainer/Leaderboard" instance=ExtResource("2_iaiks")]
 layout_mode = 2
+anchors_preset = 0
+offset_bottom = 4.0
+grow_horizontal = 1
+grow_vertical = 1
 
 [node name="Results" type="Panel" parent="UI/TabContainer"]
 visible = false
 layout_mode = 2
-metadata/_tab_index = 2
+metadata/_tab_index = 1
 
 [node name="Chart" parent="UI/TabContainer/Results" instance=ExtResource("2_vmlr1")]
 layout_mode = 1

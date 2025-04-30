@@ -3,5 +3,32 @@
 [ext_resource type="Script" uid="uid://cumtd1faoifti" path="res://components/table/table_row.gd" id="1_sohv7"]
 
 [node name="Table Row" type="HBoxContainer"]
+offset_right = 1280.0
+offset_bottom = 23.0
 size_flags_horizontal = 3
 script = ExtResource("1_sohv7")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/margin_right = 60
+
+[node name="Label" type="Label" parent="MarginContainer"]
+layout_mode = 2
+text = "Header"
+
+[node name="MarginContainer2" type="MarginContainer" parent="."]
+layout_mode = 2
+theme_override_constants/margin_right = 60
+
+[node name="Label" type="Label" parent="MarginContainer2"]
+layout_mode = 2
+text = "Header"
+
+[node name="MarginContainer3" type="MarginContainer" parent="."]
+layout_mode = 2
+theme_override_constants/margin_right = 60
+
+[node name="Label" type="Label" parent="MarginContainer3"]
+layout_mode = 2
+text = "Header"

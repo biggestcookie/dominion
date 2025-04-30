@@ -1,9 +1,11 @@
 class_name Score
 extends Resource
 
+var name: String
+var unix_time: float
+
 var _start_msec: int
 var _finish_msec: int
-var unix_time: float
 var total_msec: int:
 	get():
 		return _finish_msec - _start_msec

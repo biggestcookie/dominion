@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://b563ham4pw34y"]
+
+[ext_resource type="PackedScene" uid="uid://boqr33q277xex" path="res://components/table/table_component.tscn" id="1_ut5x7"]
+
+[node name="Leaderboard" type="Node"]
+
+[node name="Table" parent="." instance=ExtResource("1_ut5x7")]
