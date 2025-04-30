@@ -16,6 +16,7 @@ var timing_index := 0
 var press_timing := Array()
 var function: Function
 
+
 func _ready() -> void:
 	timer.timeout.connect(show_results)
 	results_timer.timeout.connect(func() -> void:
