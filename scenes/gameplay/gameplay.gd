@@ -30,6 +30,8 @@ func _process(_delta: float) -> void:
 
 
 func _physics_process(delta: float) -> void:
+	if not is_active:
+		return
 	if delta != frame_delta:
 		print("ERROR: Running slower than 60 FPS")
 		# Throw error to user?

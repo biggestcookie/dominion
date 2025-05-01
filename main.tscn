@@ -6,16 +6,25 @@
 [ext_resource type="PackedScene" uid="uid://rtvt044q046s" path="res://scenes/results/results.tscn" id="4_7mycd"]
 [ext_resource type="PackedScene" uid="uid://lbvoom2t1qal" path="res://scenes/settings/settings.tscn" id="5_lquwl"]
 
-[node name="Main" type="Node"]
+[node name="Main" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 script = ExtResource("1_sxbca")
 
 [node name="Menu" parent="." instance=ExtResource("2_1bvp3")]
+layout_mode = 1
 
 [node name="Gameplay" parent="." instance=ExtResource("3_lquwl")]
 visible = false
 
 [node name="Results" parent="." instance=ExtResource("4_7mycd")]
 visible = false
+layout_mode = 1
 
 [node name="Settings" parent="." instance=ExtResource("5_lquwl")]
 visible = false
+layout_mode = 1

@@ -71,7 +71,7 @@ func show_results() -> void:
 func plot() -> void:
 	var plots := calculate_velocity(press_timing)
 	
-	var cp: ChartProperties = ChartProperties.new()
+	var cp := ChartProperties.new()
 	cp.colors.frame = Color("#161a1d")
 	cp.colors.background = Color.TRANSPARENT
 	cp.colors.grid = Color("#283442")
