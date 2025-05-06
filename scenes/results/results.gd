@@ -24,9 +24,7 @@ func on_game_state_changed(new_state: Main.GameState, result: Score) -> void:
 
 
 func on_tab_changed(tab_index: int) -> void:
-	if tab_index == 1:
-		# Plot new chart
-		results_chart.plot_new_chart(current_result)
+	pass
 
 
 func show_window() -> void:
@@ -36,6 +34,7 @@ func show_window() -> void:
 	else:
 		tab_container.tabs_visible = true
 		tab_container.current_tab = 1
+		results_chart.plot_new_chart(current_result)
 	# tween container into view
 	tab_container.visible = true
 

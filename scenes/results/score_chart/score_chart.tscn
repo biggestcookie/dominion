@@ -1,7 +1,6 @@
-[gd_scene load_steps=4 format=3 uid="uid://bdsk5g58pnaqp"]
+[gd_scene load_steps=3 format=3 uid="uid://bdsk5g58pnaqp"]
 
 [ext_resource type="Script" uid="uid://bj5wklqi1gm48" path="res://scenes/results/score_chart/score_chart.gd" id="1_3rllq"]
-[ext_resource type="PackedScene" uid="uid://dlwq4kmdb3bhs" path="res://addons/easy_charts/control_charts/chart.tscn" id="2_62iu1"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3rllq"]
 bg_color = Color(0, 0, 0, 1)
@@ -15,6 +14,3 @@ grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_3rllq")
 script = ExtResource("1_3rllq")
 metadata/_tab_index = 1
-
-[node name="Chart" parent="." instance=ExtResource("2_62iu1")]
-layout_mode = 1

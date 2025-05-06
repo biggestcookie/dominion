@@ -64,5 +64,6 @@ func start_mashing() -> void:
 
 
 func finish_game() -> void:
+	result.finish()
 	is_active = false
 	Events.game_state_changed.emit(Main.GameState.RESULTS, result)

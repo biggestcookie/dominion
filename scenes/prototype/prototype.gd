@@ -70,7 +70,6 @@ func show_results() -> void:
 
 func plot() -> void:
 	var plots := calculate_velocity(press_timing)
-	
 	var cp := ChartProperties.new()
 	cp.colors.frame = Color("#161a1d")
 	cp.colors.background = Color.TRANSPARENT
@@ -84,7 +83,6 @@ func plot() -> void:
 	cp.x_scale = 10
 	cp.y_scale = plots.y.max() + 1
 	cp.interactive = false
-
 	function = Function.new(
 		plots.x, plots.y, "Presses per second",
 		{
@@ -94,20 +92,18 @@ func plot() -> void:
 			interpolation = Function.Interpolation.SPLINE
 		}
 	)
-	
 	chart.set_x_domain(0, 10)
 	chart.set_y_domain(0, plots.y.max() + 1)
-
 	chart.plot([function], cp)
 	set_process(false)
 
 
 func calculate_velocity(data: Array) -> Dictionary:
-	var num_segments := 30
+	var num_segments := 30 # 3 segments per second
 	var segment_length := int(float(data.size()) / num_segments)
 	var segment_time := (1.0 / 60.0) * segment_length
-	var x_points := []
-	var y_points := []
+	var x_points: Array[float] = []
+	var y_points: Array[float] = []
 	
 	for index in range(num_segments):
 		var start := index * segment_length

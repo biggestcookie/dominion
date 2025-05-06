@@ -4,11 +4,11 @@ extends Resource
 var name: String
 var unix_time: float
 
-var _start_msec: int
-var _finish_msec: int
+var start_msec: int
+var finish_msec: int
 var total_msec: int:
 	get():
-		return _finish_msec - _start_msec
+		return finish_msec - start_msec
 
 var press_ticks: Array[int] = [] # Each element is the tick each press occurred
 var press_count: int:
@@ -17,11 +17,11 @@ var press_count: int:
 
 
 func _init() -> void:
-	_start_msec = Time.get_ticks_msec()
+	start_msec = Time.get_ticks_msec()
 
 
 func finish() -> void:
-	_finish_msec = Time.get_ticks_msec()
+	finish_msec = Time.get_ticks_msec()
 	unix_time = Time.get_unix_time_from_system()
 
 
@@ -31,7 +31,7 @@ func press() -> void:
 
 func get_elapsed_time() -> String:
 	# Make this store and return msec instead of storing frame times?
-	var total_seconds := (Time.get_ticks_msec() - _start_msec) / 1000.0
+	var total_seconds := (Time.get_ticks_msec() - start_msec) / 1000.0
 	var minutes := int(total_seconds / 60.0)
 	var seconds := int(total_seconds) % 60
 	var milliseconds := int(total_seconds * 1000) % 1000
